@@ -39,17 +39,33 @@ const getSalario = ( id ) => {
     });
 };
 
-const id = 4;
+const id = 2;
+
+const getInfoUsuario = async(id) => {
+   const empleado =  await getEmpleado(id);
+   const salario =  getSalario(id);
+   return `El empleado ${ empleado } tiene el salario ${ salario }`;
+};
+
+getInfoUsuario(id).then( (empleado) => { console.log(empleado);})
+                  .catch( (err) => { console.log(err);} );
+
+
+/*getEmpleado(id).then( (empleado) => {
+    emp = empleado;
+    return getSalario(id)}).then( (salario) => {
+        console.log(`El empleado ${ emp } tiene el salario ${ salario }`);})
+        .catch( () => { console.log(`El empleado ${emp} no tiene salario.`)});
 
 getEmpleado(id)
         .then( (empleado) => { 
             getSalario(id).then( (salario) => {
                 console.log(`El empleado ${ empleado } tiene el salario ${ salario }`);
             }).catch( (err) => { console.log(`El empleado ${empleado} no tiene salario.`);})
-        }).catch( (err) => { console.log(err);} );  ;
+        }).catch( (err) => { console.log(err);} );  
 
 
-/*getEmpleado( id, (err, empleado) => { 
+getEmpleado( id, (err, empleado) => { 
     if( err ) {
         return console.log(err);
     }
@@ -60,9 +76,4 @@ getEmpleado(id)
         console.log(`El empleado ${empleado} gana ${salario}.`);
     });
 });*/
-
-
-
-
-
 
