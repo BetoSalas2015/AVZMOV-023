@@ -1,16 +1,24 @@
-const fs = require('fs');
+const { crearArchivo } = require('./modulos/multiplicar');
+const argv = require('yargs')
+            .option('b', {
+                alias: 'base',
+                demandOption: true,
+                deault: 5,
+                describe: 'Base de la tabla de multiplicar',
+                type: 'number'
+            })
+            .check( (argv, option) => {
+                if (isNaN(argv.base)) {
+                    throw 'El argumento base no es un número';
+                }
+                return true;
+            })
+            .argv;
 
 console.clear();
 
-const base = 5;
-let salida = '';
+const base = argv.base;
 
-console.log(`=====================`);
-console.log(`=  tabla del ${base}  =`);
-console.log(`=====================`);
-
-for (let i = 1; i <= 10; i++) {
-    salida += `${base} * ${i} = ${ base * i}\n`;
-}
-
-console.log(salida);
+crearArchivo(base, limite = 10)
+    .then((nombreArchivo) => { console.log(nombreArchivo, ' creado');})
+    .catch( (err) => { console.log(err);} );
