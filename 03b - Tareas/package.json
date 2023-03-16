@@ -1,0 +1,19 @@
+{
+  "name": "tareasapp",
+  "version": "0.1.0",
+  "description": "Aplicación nodejs para control de Tareas (to-do)",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app,js"
+  },
+  "keywords": [
+    "nodejs",
+    "javascript"
+  ],
+  "author": "Roberto Salazar Márquez",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "inquirer": "^8.0.0"
+  }
+}
