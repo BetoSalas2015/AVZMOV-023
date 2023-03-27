@@ -1,5 +1,7 @@
 const Tarea = require('./tarea');
 
+//  { {id: xyz. { id:xyz, des:'blabla' } }
+
 class Tareas {
     constructor() {
         this.listado = {};
@@ -13,6 +15,12 @@ class Tareas {
         });
         return listadoArr;
     }
+
+    cargarListado = (arreglo) => {
+        arreglo.forEach( (tarea) => {
+            this.listado[tarea.id] = tarea;
+        });
+    };
 
     crearTarea = (desc) => {
         const tarea = new Tarea(desc);
