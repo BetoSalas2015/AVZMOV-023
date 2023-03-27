@@ -40,7 +40,7 @@ const menu = [
 ];
 
 const inquirerMenu = async () => {
-    console.clear();
+   // console.clear();
     console.log("=========================".green);
     console.log("= Seleccione una opción =".green);
     console.log("=========================\n".green);
@@ -59,7 +59,24 @@ const pausa = async() => {
     }])
 };
 
+const capturaEntrada = async(message) => {
+    respuesta = await inquirer.prompt([{
+        type: 'input',
+        name: 'resp',
+        message,
+        validate: (entrada) => {
+            if (entrada.length === 0) {
+                return 'Entrada inválida. Reintente';
+            } else {
+                return true;
+            }
+        }
+    }]);
+    return respuesta.resp;
+};
+
 module.exports = {
     inquirerMenu, 
-    pausa
+    pausa,
+    capturaEntrada
 }

@@ -1,11 +1,22 @@
 const colors = require('colors');
-const { inquirerMenu, pausa } = require('./js/inquirer');
+const { inquirerMenu, pausa, capturaEntrada } = require('./js/inquirer');
+const Tareas = require('./modelos/tareas');
 
 const main = async() => {
     let opc = 0;
+    console.clear();
+    tareas = new Tareas();
     do {
         opc = await inquirerMenu();
-        console.log(opc);
+
+        switch (opc) {
+            case 1: 
+                    const resp = await capturaEntrada('Descripción: ');
+                    tareas.crearTarea(resp); break;
+           
+        
+
+        }
     } while (opc !== 0);
 
     await pausa();
