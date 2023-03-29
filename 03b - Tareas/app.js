@@ -17,8 +17,12 @@ const main = async() => {
             case 1: 
                     const resp = await capturaEntrada('Descripción: ');
                     tareas.crearTarea(resp); break;
-            case 2: console.log(tareas.listadoArr);    
+            case 2: tareas.imprimeTareas(); 
                     break; 
+            case 3: tareas.imprimePendietesCompletdas( true );
+                    break;
+            case 4: tareas.imprimePendietesCompletdas( false );
+                    break;
 
         
 
