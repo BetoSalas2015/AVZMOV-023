@@ -68,8 +68,17 @@ class Tareas {
 
     borrarTarea = (id) => {
         if ( this.listado[id] ) {
-            delete this.listado1[id];
+            delete this.listado[id];
         }
+    };
+
+    cambiaTareas = (ids = []) => {
+        ids.forEach( (id) => {
+            const tarea = this.listado[id];
+            if (!tarea.completado) {
+                tarea.completado = new Date().toISOString();
+            }
+        });
     };
 
 
