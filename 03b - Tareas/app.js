@@ -41,8 +41,6 @@ const main = async() => {
                     
                     break;
 
-        
-
         }
         guardaBase(tareas.listadoArr);
     } while (opc !== 0);

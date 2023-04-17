@@ -1,0 +1,5 @@
+Mapbox Token = pk.eyJ1Ijoicm9iZXJ0b3NhbGF6YXJtYXJxdWV6IiwiYSI6ImNsZ2I2bmJwejFvOXUzbGxpeG4zNnp1cHgifQ.qAo8qp8BKGhjJGpuQuqtMQ
+
+https://api.mapbox.com/geocoding/v5/mapbox.places/Puebla.json
+anguage=es
+access_token=pk.eyJ1Ijoicm9iZXJ0b3NhbGF6YXJtYXJxdWV6IiwiYSI6ImNsMXdyejhqNTJ6bWozY3BjaTlkMHBqaTQifQ.e6d_r7x8mhfRqOKlK3QEQg
