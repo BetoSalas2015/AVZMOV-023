@@ -1,10 +1,12 @@
+const fs = require('fs');
 const axios = require('axios');
 
 class Busquedas {
     historial = [];
+    dbpath = './db/database.json';
 
     constructor() {
-
+        
     }
 
     async ciudad( lugar = '') {
@@ -44,6 +46,35 @@ class Busquedas {
             hum: resp.data.main.humidity
         }
     }
+
+    guardarBusquedas = (lugar = '') => {
+        if (this.historial.includes(lugar)) {
+            return;
+        }
+        this.historial.unshift(lugar);
+        this.historial = this.historial.slice(0, 5);
+    };
+
+    guardaBase = () => {
+        const basedatos = {
+            'historial': this.historial
+        }
+        try {
+            fs.writeFileSync(this.dbpath, JSON.stringify(basedatos));
+        } catch (error) {
+            throw error;
+        }
+    };
+
+    restauraBase = () => {
+        if( !fs.existsSync(this.dbpath) ) {
+            return null;
+        }
+        const consultas = fs.readFileSync(this.dbpath, { encoding: 'utf-8'} );
+        const hist = JSON.parse(consultas);
+
+        this.historial = hist.historial;
+    };
 
 }
 
